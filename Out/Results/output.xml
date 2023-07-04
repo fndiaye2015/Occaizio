@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.0a5 on darwin)" generated="20230704 23:49:38.286" rpa="false" schemaversion="4">
+<suite id="s1" name="Tests" source="/Users/fndiaye/PycharmProjects/Occaizio/Tests">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Start Appium Server For Android On Port ${ANDROID_PORT}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Start Appium Server For Android On Port ${ANDROID_PORT}" sourcename="Start Appium Server For Android On Port ${ANDROID_PORT}">
+<doc>Start Appium Server on Android Port</doc>
+<kw name="Start Appium Server" library="Setup">
+<arg>${ANDROID_PORT}</arg>
+<doc>Start Appium Server</doc>
+<kw name="Kill All Appium Process" library="Setup">
+<doc>Kill all appium server's instance</doc>
+<kw name="Run Process" library="Process">
+<arg>ps</arg>
+<arg>-ef|grep appium|grep -v grep|awk '{print $2}'|xargs kill -9</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230704 23:49:38.543" level="INFO">Starting process:
+ps "-ef|grep appium|grep -v grep|awk '{print $2}'|xargs kill -9"</msg>
+<msg timestamp="20230704 23:49:38.550" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230704 23:49:38.553" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230704 23:49:38.542" endtime="20230704 23:49:38.553"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230704 23:49:43.556" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230704 23:49:38.553" endtime="20230704 23:49:43.557"/>
+</kw>
+<status status="PASS" starttime="20230704 23:49:38.542" endtime="20230704 23:49:43.557"/>
+</kw>
+<kw name="Start Process" library="Process">
+<arg>/usr/local/bin/appium</arg>
+<arg>-p</arg>
+<arg>${PORT}</arg>
+<arg>shell=True</arg>
+<arg>alias=appiumserver_${PORT}</arg>
+<arg>stdout=${OUT_DIR}/appium_sdout.txt</arg>
+<arg>stderr=${OUT_DIR}/appium_stderr.txt</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20230704 23:49:43.560" level="INFO">Starting process:
+/usr/local/bin/appium -p 4723</msg>
+<status status="PASS" starttime="20230704 23:49:43.558" endtime="20230704 23:49:43.569"/>
+</kw>
+<kw name="Process Should Be Running" library="Process">
+<arg>appiumserver_${PORT}</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" starttime="20230704 23:49:43.570" endtime="20230704 23:49:43.572"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230704 23:49:48.573" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230704 23:49:43.572" endtime="20230704 23:49:48.573"/>
+</kw>
+<status status="PASS" starttime="20230704 23:49:38.542" endtime="20230704 23:49:48.573"/>
+</kw>
+<status status="PASS" starttime="20230704 23:49:38.541" endtime="20230704 23:49:48.573"/>
+</kw>
+<status status="PASS" starttime="20230704 23:49:38.541" endtime="20230704 23:49:48.573"/>
+</kw>
+<suite id="s1-s1" name="Occazio" source="/Users/fndiaye/PycharmProjects/Occaizio/Tests/Occazio.robot">
+<test id="s1-s1-t1" name="Open Occazio application and create an account by entering your username" line="7">
+<kw name="Open Application" library="AppiumLibrary" type="SETUP">
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>deviceName=emulator-5554</arg>
+<arg>platformName=Android</arg>
+<arg>app=/Users/fndiaye/PycharmProjects/Occaizio/Common/Occazio.apk</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20230704 23:49:48.598" endtime="20230704 23:49:57.846"/>
+</kw>
+<kw name="Go to the first view and navigate throught the onboarding" library="OccazioApp">
+<kw name="Verify if we are on the first onboarding" library="OnboardingViews">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${HEADING_FIRST_PAGE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:02.397" level="INFO">criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road
+criteria is fr.dsquad.occazio:id/tv_take_road</msg>
+<status status="PASS" starttime="20230704 23:49:57.847" endtime="20230704 23:50:02.397"/>
+</kw>
+<status status="PASS" starttime="20230704 23:49:57.847" endtime="20230704 23:50:02.398"/>
+</kw>
+<kw name="Click on the button &quot;DÉMARRER&quot;" library="OnboardingViews">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${BUTTON_FIRST_PAGE}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:02.401" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/bt_start_showcase'.</msg>
+<msg timestamp="20230704 23:50:02.473" level="INFO">criteria is fr.dsquad.occazio:id/bt_start_showcase</msg>
+<status status="PASS" starttime="20230704 23:50:02.398" endtime="20230704 23:50:02.473"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:02.398" endtime="20230704 23:50:02.473"/>
+</kw>
+<kw name="Verify if the view &quot;Simplicité&quot; is showing" library="OnboardingViews">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${HEADINGS_ONBOARDING_PAGE}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:03.739" level="INFO">criteria is fr.dsquad.occazio:id/tv_showcase_page_number
+criteria is fr.dsquad.occazio:id/tv_showcase_page_number</msg>
+<status status="PASS" starttime="20230704 23:50:02.474" endtime="20230704 23:50:03.739"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:02.474" endtime="20230704 23:50:03.739"/>
+</kw>
+<kw name="Swipe to the last view" library="OnboardingViews">
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>4</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>@{SWIPE_COORDINATE}</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20230704 23:50:03.740" endtime="20230704 23:50:05.189"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:03.740" endtime="20230704 23:50:05.189"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>@{SWIPE_COORDINATE}</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20230704 23:50:05.189" endtime="20230704 23:50:07.085"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:05.189" endtime="20230704 23:50:07.085"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>@{SWIPE_COORDINATE}</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20230704 23:50:07.085" endtime="20230704 23:50:08.616"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:07.085" endtime="20230704 23:50:08.616"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>@{SWIPE_COORDINATE}</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20230704 23:50:08.616" endtime="20230704 23:50:10.186"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:08.616" endtime="20230704 23:50:10.186"/>
+</iter>
+<status status="PASS" starttime="20230704 23:50:03.740" endtime="20230704 23:50:10.186"/>
+</for>
+<status status="PASS" starttime="20230704 23:50:03.739" endtime="20230704 23:50:10.186"/>
+</kw>
+<kw name="Verify if the view &quot;Respect&quot; is showing" library="OnboardingViews">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${HEADINGS_ONBOARDING_PAGE}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:10.942" level="INFO">criteria is fr.dsquad.occazio:id/tv_showcase_page_number</msg>
+<status status="PASS" starttime="20230704 23:50:10.186" endtime="20230704 23:50:10.942"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:10.186" endtime="20230704 23:50:10.943"/>
+</kw>
+<kw name="Accept notifications" library="OnboardingViews">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${NOTIFICATION_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:10.946" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/v_seekbar_overlay'.</msg>
+<msg timestamp="20230704 23:50:11.131" level="INFO">criteria is fr.dsquad.occazio:id/v_seekbar_overlay</msg>
+<status status="PASS" starttime="20230704 23:50:10.944" endtime="20230704 23:50:11.131"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:10.943" endtime="20230704 23:50:11.131"/>
+</kw>
+<kw name="Tap on the validate button" library="OnboardingViews">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${ONBOARDING_VALIDATE_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:11.136" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/bt_stop_showcase'.</msg>
+<msg timestamp="20230704 23:50:11.904" level="INFO">criteria is fr.dsquad.occazio:id/bt_stop_showcase</msg>
+<status status="PASS" starttime="20230704 23:50:11.132" endtime="20230704 23:50:11.904"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:11.131" endtime="20230704 23:50:11.904"/>
+</kw>
+<status status="PASS" starttime="20230704 23:49:57.847" endtime="20230704 23:50:11.904"/>
+</kw>
+<kw name="Check if the 4 options are visible on the PopUp" library="OccazioApp">
+<kw name="Check if the option &quot;Checher un véhicule&quot; is visible" library="PopUp">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${POPUP_FIRST_OPTION}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:13.056" level="INFO">criteria is fr.dsquad.occazio:id/iv_why_buy
+criteria is fr.dsquad.occazio:id/iv_why_buy</msg>
+<status status="PASS" starttime="20230704 23:50:11.905" endtime="20230704 23:50:13.056"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:11.905" endtime="20230704 23:50:13.056"/>
+</kw>
+<kw name="Check if the option &quot;Vendre un véhicule&quot; is visible" library="PopUp">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${POPUP_SECOND_OPTION}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:13.118" level="INFO">criteria is fr.dsquad.occazio:id/iv_why_sell</msg>
+<status status="PASS" starttime="20230704 23:50:13.056" endtime="20230704 23:50:13.118"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:13.056" endtime="20230704 23:50:13.118"/>
+</kw>
+<kw name="Check if the option &quot;Remplacer mon véhicule&quot; is visible" library="PopUp">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${POPUP_THIRD_OPTION}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:13.179" level="INFO">criteria is fr.dsquad.occazio:id/iv_why_buy_sell</msg>
+<status status="PASS" starttime="20230704 23:50:13.119" endtime="20230704 23:50:13.179"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:13.118" endtime="20230704 23:50:13.179"/>
+</kw>
+<kw name="Check if the option &quot;Découvrir&quot; is visible" library="PopUp">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${POPUP_FOURTH_OPTION}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:13.227" level="INFO">criteria is fr.dsquad.occazio:id/iv_why_other</msg>
+<status status="PASS" starttime="20230704 23:50:13.180" endtime="20230704 23:50:13.227"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:13.179" endtime="20230704 23:50:13.227"/>
+</kw>
+<kw name="Click on the first option &quot;Checher un vehicule&quot;" library="PopUp">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${POPUP_FIRST_OPTION}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:13.232" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/iv_why_buy'.</msg>
+<msg timestamp="20230704 23:50:13.420" level="INFO">criteria is fr.dsquad.occazio:id/iv_why_buy</msg>
+<status status="PASS" starttime="20230704 23:50:13.228" endtime="20230704 23:50:13.421"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:13.228" endtime="20230704 23:50:13.421"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:11.904" endtime="20230704 23:50:13.421"/>
+</kw>
+<kw name="Go to &quot;Messagerie&quot; and create a username" library="OccazioApp">
+<kw name="Verify if we are on the Home View" library="HomePage">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${ICON_HOMEPAGE}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:13.975" level="INFO">criteria is fr.dsquad.occazio:id/home</msg>
+<status status="PASS" starttime="20230704 23:50:13.422" endtime="20230704 23:50:13.975"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:13.421" endtime="20230704 23:50:13.975"/>
+</kw>
+<kw name="Tap on &quot;Messagerie&quot; Icon" library="HomePage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${ICON_MESSAGERIE}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:13.982" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/mailbox'.</msg>
+<msg timestamp="20230704 23:50:14.437" level="INFO">criteria is fr.dsquad.occazio:id/mailbox</msg>
+<status status="PASS" starttime="20230704 23:50:13.976" endtime="20230704 23:50:14.438"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:13.975" endtime="20230704 23:50:14.438"/>
+</kw>
+<kw name="Verify if we are on the Messagerie View" library="MessagerieView">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${MESSAGERIE_HEADING}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:15.672" level="INFO">criteria is fr.dsquad.occazio:id/toolbar_conversation_title
+criteria is fr.dsquad.occazio:id/toolbar_conversation_title</msg>
+<status status="PASS" starttime="20230704 23:50:14.438" endtime="20230704 23:50:15.672"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:14.438" endtime="20230704 23:50:15.672"/>
+</kw>
+<kw name="Tap on Need Help section" library="MessagerieView">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${MESSAGERIE_NEED_HELP}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:15.675" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/cl_conv_occazio_content'.</msg>
+<msg timestamp="20230704 23:50:15.760" level="INFO">criteria is fr.dsquad.occazio:id/cl_conv_occazio_content</msg>
+<status status="PASS" starttime="20230704 23:50:15.673" endtime="20230704 23:50:15.760"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${MESSAGERIE_POPUP_HEADING}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:17.060" level="INFO">criteria is fr.dsquad.occazio:id/tv_user_name_title</msg>
+<status status="PASS" starttime="20230704 23:50:15.760" endtime="20230704 23:50:17.060"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:15.672" endtime="20230704 23:50:17.060"/>
+</kw>
+<kw name="Enter your username" library="MessagerieView">
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${MESSAGERIE_INPUT_USERNAME}</arg>
+<arg>${MESSAGERIE_TEXT_USERNAME}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:17.067" level="INFO">Typing text 'fndiaye' into text field 'id=fr.dsquad.occazio:id/et_user_name'</msg>
+<msg timestamp="20230704 23:50:17.774" level="INFO">criteria is fr.dsquad.occazio:id/et_user_name</msg>
+<status status="PASS" starttime="20230704 23:50:17.062" endtime="20230704 23:50:17.774"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:17.061" endtime="20230704 23:50:17.774"/>
+</kw>
+<kw name="Click on the validation button" library="MessagerieView">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${MESSAGERIE_BUTTON_VALIDATE}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:17.780" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/bt_user_name_valid'.</msg>
+<msg timestamp="20230704 23:50:18.375" level="INFO">criteria is fr.dsquad.occazio:id/bt_user_name_valid</msg>
+<status status="PASS" starttime="20230704 23:50:17.775" endtime="20230704 23:50:18.375"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${MESSAGERIE_ICON_BACK}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:18.774" level="INFO">criteria is fr.dsquad.occazio:id/ib_chat_back_occazio</msg>
+<status status="PASS" starttime="20230704 23:50:18.375" endtime="20230704 23:50:18.774"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:17.775" endtime="20230704 23:50:18.774"/>
+</kw>
+<kw name="Navigate to the precedent page" library="MessagerieView">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${MESSAGERIE_ICON_BACK}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:18.780" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/ib_chat_back_occazio'.</msg>
+<msg timestamp="20230704 23:50:19.315" level="INFO">criteria is fr.dsquad.occazio:id/ib_chat_back_occazio</msg>
+<status status="PASS" starttime="20230704 23:50:18.775" endtime="20230704 23:50:19.315"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:18.775" endtime="20230704 23:50:19.315"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:13.421" endtime="20230704 23:50:19.316"/>
+</kw>
+<kw name="Go to the HomePage" library="OccazioApp">
+<kw name="Tap on &quot;Accueil&quot; Icon" library="HomePage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${ICON_HOMEPAGE}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:19.322" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/home'.</msg>
+<msg timestamp="20230704 23:50:20.374" level="INFO">criteria is fr.dsquad.occazio:id/home</msg>
+<status status="PASS" starttime="20230704 23:50:19.317" endtime="20230704 23:50:20.374"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:19.317" endtime="20230704 23:50:20.374"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:19.316" endtime="20230704 23:50:20.374"/>
+</kw>
+<kw name="Check if the username is displayed" library="OccazioApp">
+<kw name="Navigate to your account details" library="HomePage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${ICON_ACCOUNT}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:20.380" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/toolbar_home_profil'.</msg>
+<msg timestamp="20230704 23:50:22.168" level="INFO">criteria is fr.dsquad.occazio:id/toolbar_home_profil</msg>
+<status status="PASS" starttime="20230704 23:50:20.375" endtime="20230704 23:50:22.168"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${HEADING_ACCOUNT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:22.608" level="INFO">criteria is fr.dsquad.occazio:id/tv_account_title</msg>
+<status status="PASS" starttime="20230704 23:50:22.169" endtime="20230704 23:50:22.608"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:20.375" endtime="20230704 23:50:22.608"/>
+</kw>
+<kw name="View personal information" library="HomePage">
+<arg>${MESSAGERIE_TEXT_USERNAME}</arg>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PERSONAL_INFO_ACCOUNT_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230704 23:50:22.612" level="INFO">Clicking element 'id=fr.dsquad.occazio:id/tv_personnal_data'.</msg>
+<msg timestamp="20230704 23:50:22.977" level="INFO">criteria is fr.dsquad.occazio:id/tv_personnal_data</msg>
+<status status="PASS" starttime="20230704 23:50:22.609" endtime="20230704 23:50:22.977"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${HEADING_INFO_ACCOUNT}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20230704 23:50:23.305" level="INFO">criteria is fr.dsquad.occazio:id/tv_your_info_title</msg>
+<status status="PASS" starttime="20230704 23:50:22.977" endtime="20230704 23:50:23.305"/>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>${username}</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<msg timestamp="20230704 23:50:23.734" level="INFO">Current page contains text 'fndiaye'.</msg>
+<status status="PASS" starttime="20230704 23:50:23.306" endtime="20230704 23:50:23.734"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:22.608" endtime="20230704 23:50:23.734"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:20.375" endtime="20230704 23:50:23.734"/>
+</kw>
+<kw name="Close Application" library="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20230704 23:50:23.734" endtime="20230704 23:50:24.271"/>
+</kw>
+<doc>Dans ce cas de test, nous creons un username et nous allons tester si ce dernier a bien ete cree</doc>
+<status status="PASS" starttime="20230704 23:49:48.597" endtime="20230704 23:50:24.272"/>
+</test>
+<doc>Ce fichier contiendra tous nos cas de test</doc>
+<status status="PASS" starttime="20230704 23:49:48.574" endtime="20230704 23:50:24.272"/>
+</suite>
+<kw name="Stop Appium Server For Android 4723" type="TEARDOWN" sourcename="Stop Appium Server For Android ${ANDROID_PORT}">
+<doc>Stop Appium Instance</doc>
+<kw name="Stop Appium Server" library="Setup">
+<arg>${ANDROID_PORT}</arg>
+<doc>Stop Appium Server</doc>
+<kw name="Terminate Process" library="Process">
+<arg>appiumserver_${PORT}</arg>
+<arg>kill=True</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<msg timestamp="20230704 23:50:24.276" level="INFO">Forcefully killing process.</msg>
+<msg timestamp="20230704 23:50:24.276" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230704 23:50:24.275" endtime="20230704 23:50:24.276"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:24.274" endtime="20230704 23:50:24.276"/>
+</kw>
+<status status="PASS" starttime="20230704 23:50:24.274" endtime="20230704 23:50:24.276"/>
+</kw>
+<doc>Before suite file</doc>
+<status status="PASS" starttime="20230704 23:49:38.287" endtime="20230704 23:50:24.276"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Occazio">Tests.Occazio</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

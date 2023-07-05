@@ -14,6 +14,7 @@ Start Appium Server
     Process Should Be Running   appiumserver_${PORT}
     Sleep                       5s
 
+
 Kill All Appium Process
     [Documentation]             Kill all appium server's instance
     Run Process                 ps    -ef|grep appium|grep -v grep|awk '{print $2}'|xargs kill -9

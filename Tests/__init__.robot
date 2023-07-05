@@ -26,4 +26,3 @@ Stop Appium Server For Android ${ANDROID_PORT}
     [Documentation]                 Stop Appium Instance
     Stop Appium Server              ${ANDROID_PORT}
 
-

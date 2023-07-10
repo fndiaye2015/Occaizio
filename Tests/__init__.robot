@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation                       Before suite file
 Library                             AppiumLibrary
+Library                             OperatingSystem
 Resource                            ../Common/Setup.robot
 Resource                            ../Resources/Config.robot
 
@@ -10,7 +11,7 @@ Test Setup                          Open Application       http://localhost:4723
     ...                             automationName=UiAutomator2
     ...                             deviceName=emulator-5554
     ...                             platformName=Android
-    ...                             app=/Users/fndiaye/PycharmProjects/Occaizio/Common/Occazio.apk
+    ...                             app=${CURDIR}/../Common/Occazio.apk
 
 Test Teardown                       Close Application
 

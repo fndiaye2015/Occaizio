@@ -2,6 +2,9 @@
 Documentation       Ce fichier contiendra tous nos cas de test
 Resource            ../Resources/OccazioApp.robot
 
+#Run Script with allure report
+#robot --listener allure_robotframework:Out/AllureReports/ -d Out/Results/ Tests/
+
 
 *** Test Cases ***
 Open Occazio application and create an account by entering your username

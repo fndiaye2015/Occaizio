@@ -27,4 +27,5 @@ Stop Appium Server
 
 Close and Terminate the App
     Close Application
-    Terminate Application       fr.dsquad.occazio
+
+

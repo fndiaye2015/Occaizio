@@ -8,3 +8,11 @@ ${ANDROID_APP_PACKAGE} =            fr.dsquad.occazio
 ${ANDROID_APP_ACTIVITY} =           fr.dsquad.occazio.view.home.HomeActivity
 ${ANDROID_DEVICE_NAME} =            emulator-5554
 ${ANDROID_APP_NAME} =               /Users/fndiaye/PycharmProjects/Occazio/Common/Occazio.apk
+
+*** Keywords ***
+Open Occazio App
+    Open Application                http://localhost:4723/wd/hub
+    ...                             automationName=UiAutomator2
+    ...                             deviceName=emulator-5554
+    ...                             platformName=Android
+    ...                             app=/Users/fndiaye/PycharmProjects/Occaizio/Common/Occazio.apk
